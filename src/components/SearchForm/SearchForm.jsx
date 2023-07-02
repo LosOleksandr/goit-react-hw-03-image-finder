@@ -1,12 +1,14 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import { Header, HeaderForm } from './SearchForm.styled';
+import { AiOutlineSearch } from 'react-icons/ai';
 
 export default function SearchForm({ onSubmit }) {
   return (
-    <header>
-      <form onSubmit={onSubmit}>
+    <Header>
+      <HeaderForm onSubmit={onSubmit}>
         <button type="submit">
-          <span>Search </span>
+          <AiOutlineSearch size={20} />
         </button>
 
         <input
@@ -16,7 +18,11 @@ export default function SearchForm({ onSubmit }) {
           autoFocus
           placeholder="Search images and photos"
         />
-      </form>
-    </header>
+      </HeaderForm>
+    </Header>
   );
 }
+
+SearchForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
